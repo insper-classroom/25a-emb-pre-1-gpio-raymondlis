@@ -24,13 +24,27 @@ int main() {
   gpio_set_dir(BTN_PIN_R, GPIO_IN);
   gpio_pull_up(BTN_PIN_R);
 
+  int estado_LED_G = 0;
+  int estado_LED_R = 0;
+
+
   while (true) {
     if (!gpio_get(BTN_PIN_G)) {
-      gpio_put(LED_PIN_G, 1);
+      printf("Verde apertado  ");
+      estado_LED_G = !estado_LED_G;
+      printf("estado verde: %d\n",estado_LED_G);
+      gpio_put(LED_PIN_G,estado_LED_G);
+      while (!gpio_get(BTN_PIN_G)) {
+      };
     }
     
     if (!gpio_get(BTN_PIN_R)) {
-      gpio_put(LED_PIN_R, 1);
+      printf("Verm apertado  ");
+      estado_LED_R = !estado_LED_R;
+      printf("estado verm: %d \n ",estado_LED_R);
+      gpio_put(LED_PIN_R,estado_LED_R);
+      while (!gpio_get(BTN_PIN_R)) {
+      };
     }
   }
 }
