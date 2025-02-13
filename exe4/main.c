@@ -32,7 +32,7 @@ int main() {
     if (!gpio_get(BTN_PIN_R)) {
       gpio_put(LED_PIN_R,1);
 
-      sleep_ms(300);
+      sleep_ms(301);
       gpio_put(LED_PIN_R,0);
       gpio_put(LED_PIN_P,1);
 
